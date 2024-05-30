@@ -1,0 +1,30 @@
+FROM ubuntu:18.04
+
+RUN apt-get update
+
+COPY foo.sh foo.sh
+
+ADD https://gist.github.com/subfuzion/08c5d85437d5d4f00e58.js .
+
+ENV PORT 8089 
+ENV PATH /home/foo 
+
+WORKDIR /a 
+WORKDIR b 
+WORKDIR c
+
+# /a/b/c
+RUN pwd 
+
+WORKDIR ${PATH}
+
+EXPOSE 9090/udp
+EXPOSE 9080/tcp
+
+# LABEL org="my org"
+
+# USER admin
+# SHELL ["/bin/zsh", "-c"]
+
+
+CMD ["sleep", "infinity"]

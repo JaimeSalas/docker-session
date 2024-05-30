@@ -1,0 +1,16 @@
+FROM ubuntu:20.04
+
+USER root
+
+RUN apt update
+RUN apt install -y software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa
+RUN apt install -y python3.7
+
+CMD echo "Hello World CMD"
+
+ENV name Jane Doe
+
+ENTRYPOINT echo "Hello, ${name}"
+   
+# /bin/sh -c <>
